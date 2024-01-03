@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-xl">
+  <div
+    class="container-fluid d-flex justify-content-center justify-content-sm-between"
+  >
+    <a class="navbar-brand" routerLink="/">
+      <i class="fa-solid fa-cloud text-primary"></i> Awesome Weather App!
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="text-primary"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i class="fa-solid fa-house"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="weather-management"
+            routerLinkActive="text-primary"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i class="fa-solid fa-umbrella"></i> Weather management
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="day-management"
+            routerLinkActive="text-primary"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i class="fa-solid fa-calendar-days"></i> Day management
+          </a>
+        </li>
+      </ul>
+      <form
+        class="d-flex"
+        role="search"
+        [formGroup]="form"
+        (ngSubmit)="searchCity()"
+      >
+        <div class="input-group">
+          <span class="input-group-text bg-white">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+          <input
+            formControlName="search"
+            class="form-control"
+            type="search"
+            placeholder="Search city"
+            aria-label="Search"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>

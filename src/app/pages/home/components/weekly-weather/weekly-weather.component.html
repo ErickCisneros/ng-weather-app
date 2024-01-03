@@ -1,0 +1,38 @@
+<div class="card shadow-sm h-100">
+  <div class="row h-100 px-2">
+    <div class="col-12 col-md-6">
+      @if (temperature && temperatureUnit) {
+      <app-weather-chart
+        [titleChart]="'Temperature ' + temperatureUnit"
+        [chartData]="temperature"
+        [legends]="true"
+        class="h-100"
+      ></app-weather-chart>
+      }
+    </div>
+    <div class="col-12 col-md-6">
+      @if (precipitation) {
+      <app-weather-chart
+        titleChart="Precipitation chance (mm)"
+        [chartData]="precipitation"
+      ></app-weather-chart>
+      }
+    </div>
+    <div class="col-12 col-md-6">
+      @if (humidity) {
+      <app-weather-chart
+        titleChart="Humidity (%)"
+        [chartData]="humidity"
+      ></app-weather-chart>
+      }
+    </div>
+    <div class="col-12 col-md-6">
+      @if (wind && windUnit) {
+      <app-weather-chart
+        [titleChart]="'Wind ' + windUnit"
+        [chartData]="wind"
+      ></app-weather-chart>
+      }
+    </div>
+  </div>
+</div>

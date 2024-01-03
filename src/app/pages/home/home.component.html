@@ -1,0 +1,14 @@
+<div
+  class="d-flex flex-column flex-md-row justify-content-center gap-3 h-100 mx-0 mx-sm-3 pt-1"
+>
+  <div class="col-12 col-md-4 col-xl-3">
+    <app-weather
+      [currentWeather]="(weather$ | async)?.currentWeather"
+    ></app-weather>
+  </div>
+  <div class="col-12 col-md-8 col-xl-9">
+    <app-weekly-weather
+      [dailyWeather]="(weather$ | async)?.dailyWeather"
+    ></app-weekly-weather>
+  </div>
+</div>

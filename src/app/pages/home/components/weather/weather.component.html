@@ -1,0 +1,60 @@
+<div class="card shadow-sm h-100">
+  <div
+    class="d-flex flex-column justify-content-center align-items-center h-100 pt-3"
+  >
+    <div class="d-flex align-items-center display-6">
+      @if (currentWeather?.weather?.icon?.url) {
+      <img
+        [ngSrc]="currentWeather!.weather.icon.url"
+        class="fs-6"
+        alt="Weather image"
+        height="100"
+        width="100"
+        priority
+      />
+      }
+      <div class="d-flex">
+        <span class="fw-bold">{{ currentWeather?.weather?.temp?.cur }}</span>
+        <span class="fw-bold lead">
+          @switch ((weatherManagement$ | async)?.units) { @case('metric') { °C }
+          @case('standard') { °K } @case('imperial') { °F } }
+        </span>
+      </div>
+    </div>
+
+    <div class="d-flex flex-md-column gap-3 w-100 px-3 py-2">
+      <div class="d-flex flex-column justify-content-center">
+        <span><i class="fa-solid fa-location-dot"></i> {{ location }}</span>
+        <span class="fs-4 text-body-secondary">Weather</span>
+        <span>{{ currentWeather?.dt | date : "LLLL d, HH:mm" }}</span>
+        <span>{{ currentWeather?.weather?.description | titlecase }}</span>
+      </div>
+
+      <ul class="list-group list-group-flush flex-grow-1">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center px-0"
+        >
+          <span class="me-1">Precip. chance</span>
+          <span>{{ currentWeather?.weather?.rain }}mm</span>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center px-0"
+        >
+          <span class="me-1">Humidity</span>
+          <span>{{ currentWeather?.weather?.humidity }}%</span>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center px-0"
+        >
+          <span class="me-1">Wind</span>
+          <span>
+            @switch ((weatherManagement$ | async)?.units) { @case('metric') {
+            {{ currentWeather?.weather?.wind?.speed }}m/s } @case('standard') {
+            {{ currentWeather?.weather?.wind?.speed }}m/s } @case('imperial') {
+            {{ currentWeather?.weather?.wind?.speed }}mi/h } }
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

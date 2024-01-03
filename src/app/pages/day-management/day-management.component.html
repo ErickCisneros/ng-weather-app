@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center align-items-center h-100">
+  <div class="card shadow-sm" style="width: 18rem">
+    <div class="card-body my-3">
+      <div class="d-flex justify-content-center fs-2 mb-1">
+        <i class="fa-solid fa-calendar-days"></i>
+      </div>
+      <h5 class="card-title text-center">Day management</h5>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <select
+          class="form-select my-3"
+          formControlName="days"
+          aria-label="Select units"
+        >
+          <option value="7">7</option>
+          <option value="6">6</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+        <div class="form-check form-switch mb-3">
+          <input
+            class="form-check-input"
+            formControlName="includeToday"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+          />
+          <label class="form-check-label" for="flexSwitchCheckDefault">
+            Include today
+          </label>
+        </div>
+        <div class="d-grid">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!validatedForm"
+          >
+            <i class="fa-solid fa-floppy-disk me-1"></i> Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
